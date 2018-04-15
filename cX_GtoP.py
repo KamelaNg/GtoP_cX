@@ -15,8 +15,8 @@ Author: Kamela Ng <13April2018>
 This script converts whole genome sequence data in the form of tab files into the most liekly output that would be observed from a classicXpertMTB/RIF run on this sample
 
 Input:
-A folder containing all the vcf files that are to be processed
-A map file that states the relationship between codons where mutations are known to be detected by GeneXpert (based on this following paper: xxxxx) and positions in the genome
+A folder containing all the tab files that are to be processed
+A map file that states the relationship between codons where mutations are known to be detected by the classic XpertMTB/RIF (based on this following paper: Ng KC, Meehan CJ, Torrea G, Goeminne L, Diels M, Rigouts L, de Jong BC, Andre E. 2018. Potential Application of Digitally Linked Tuberculosis Diagnostics for Real-Time Surveillance of Drug-Resistant Tuberculosis Transmission: Validation and Analysis of Test Results. JMIR Med Inform 6:e12.) and positions in the genome
 A filename for the output
 
 The map file is optional. If not supplied, it is assumed the standard H37Rv NC000962.3 was used and that the file sample_mapfile.txt is in the current working folder
@@ -39,7 +39,7 @@ The filename for the output is optional. If not supplied, output will be genomeT
 
 Output:
 The output file contains, for each input tab file:
-Filename, RIF Resistance result, Mutant codon number, Mutant codon nucleotides, Absent classic Xpert MTB/RIF probe, Observed reaction for each classic Xpert MTB/RIF probe - 1 (present), 0 (absent)
+Filename, RIF Resistance result, Mutant codon number, Mutant codon nucleotides, Absent classicXpertMTB/RIF probe, Observed reaction for each classicXpertMTB/RIF probe - 1 (present), 0 (absent)
 
 Usage:
 python classicXpert_GtoP_final.py --folder <folderName> --map <codonMapFile> (optional) --out <outputFilename> (optional)
