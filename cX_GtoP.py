@@ -10,7 +10,7 @@ import argparse
 import copy
 
 """
-Author: Kamela Ng <date>
+Author: Kamela Ng <13April2018>
 
 This script converts whole genome sequence data in the form of tab files into the most liekly output that would be observed from a classicXpertMTB/RIF run on this sample
 
@@ -39,7 +39,7 @@ The filename for the output is optional. If not supplied, output will be genomeT
 
 Output:
 The output file contains, for each input tab file:
-xxxxx
+Filename, RIF Resistance result, Mutant codon number, Mutant codon nucleotides, Absent classic Xpert MTB/RIF probe, Observed reaction for each classic Xpert MTB/RIF probe - 1 (present), 0 (absent)
 
 Usage:
 python classicXpert_GtoP_final.py --folder <folderName> --map <codonMapFile> (optional) --out <outputFilename> (optional)
@@ -118,7 +118,7 @@ mapf.close()
 outputList=["1","1","1","1","1","1"]
 outputKeys=["prA","prB","prC","prD","prE","prE_del"]
 
-#read in vcf file
+#read in tab file
 #for each file make a copy of the WT codon patterns, mutate it based on the vcf file and then output the associated result
 OpenDir = glob.glob(args.folder + "/*")										  
 for File in OpenDir: 
