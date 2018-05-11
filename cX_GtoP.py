@@ -16,7 +16,7 @@ This script converts whole genome sequence data in the form of tab files into th
 
 Input:
 A folder containing all the tab files that are to be processed
-A map file that states the relationship between codons where mutations are known to be detected by the classic XpertMTB/RIF (based on this following paper: Ng KC, Meehan CJ, Torrea G, Goeminne L, Diels M, Rigouts L, de Jong BC, Andre E. 2018. Potential Application of Digitally Linked Tuberculosis Diagnostics for Real-Time Surveillance of Drug-Resistant Tuberculosis Transmission: Validation and Analysis of Test Results. JMIR Med Inform 6:e12.) and positions in the genome
+A map file that states the relationship between codons where mutations are known to be detected by the classic XpertMTB/RIF (based on this following paper: Ng KC, Meehan CJ, Torrea G, Goeminne L, Diels M, Rigouts L, de Jong BC, Andre E. 2018. Potential Application of Digitally Linked Tuberculosis Diagnostics for Real-Time Surveillance of Drug-Resistant Tuberculosis Transmission: Validation and Analysis of Test Results. JMIR Med Inform 2018;6(1):e12.) and positions in the genome
 A filename for the output
 
 The map file is optional. If not supplied, it is assumed the standard H37Rv NC000962.3 was used and that the file sample_mapfile.txt is in the current working folder
@@ -60,7 +60,7 @@ codon_nuc = {
 			'452' : ['C', 'T', 'G']
 }
 
-#hardcode the codon positions with the mutated codons and the associated probe change
+#hardcode the codon positions with the mutated codons and the associated capturing probe
 classicXpertmut = {
 			'428' : [['AGG'],'prA'],
 			'430' : [['CCG'],'prA'], 
@@ -150,7 +150,7 @@ for File in OpenDir:
 			#print mutpos, altbase
 			#go through the genome positions that are associated with any change in a codon base
 			for sublist in codonpos:
-				if mutpos in sublist: #check is the genome position from the vcf file is a position in a codon of interest
+				if mutpos in sublist: #check if the genome position from the vcf file is a position in a codon of interest
 					codon=mapdict[sublist]
 					#print codon
 					if codon in classicXpertmut.keys(): #check if the codon is in the mutation list
